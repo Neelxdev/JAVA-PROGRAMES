@@ -4,7 +4,9 @@ public class arrayList {
 	public static void main(String args[]){
         // DECLARATION OF ARRAYLIST OF INTEGER TYPE
         ArrayList<Integer> list = new ArrayList<>();
+
         // FOR STRING Type: ArrayList<String> list = new ArrayList<>();
+
         // FOR BOOLEAN Type: ArrayList<Boolean> list = new ArrayList<>();
 
         //ADDING ELEMENTS
@@ -43,5 +45,9 @@ public class arrayList {
         for(int i = 0; i<list.size(); i++){
             System.out.println(list.get(i));
         }
+
+        //SUM OF ANY TWO ELEMENTS
+        int sum = list.get(3) + list.get(2);
+        System.out.println(sum);
     }
 }
