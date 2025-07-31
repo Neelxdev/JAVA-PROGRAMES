@@ -1,13 +1,15 @@
-class linkedList {
-    Node head;
-    class Node{
+public class linkedList {
+    // Node class as inner class
+    int size =0;
+    class Node {
         String data;
         Node next;
-        Node(String data){
-            this.data = data;
-            this.next = null;
-        }
+        Node() {}
+        Node(String data) { this.data = data; }
+        Node(String data, Node next) { this.data = data; this.next = next; }
     }
+
+    Node head;
 
     // ADDING ELEMENTS AT FIRST PLACE
     public void addFirst(String data){
@@ -16,6 +18,7 @@ class linkedList {
             head = newNode;
             return;
         }
+        size++;
         newNode.next = head;
         head = newNode;
     }
@@ -27,6 +30,7 @@ class linkedList {
             head = newNode;
             return;
         }
+        size++;
         Node currNode = head;
         while(currNode.next != null){
             currNode = currNode.next;
@@ -41,10 +45,13 @@ class linkedList {
         }
         Node currNode = head;
         while(currNode != null){
-            System.out.print(currNode.data+"--> ");
+            System.out.print(currNode.data);
+            if(currNode.next != null){
+                System.out.print(" -> ");
+            }
             currNode = currNode.next;
         }
-        System.out.println("NULL");
+        System.out.println();
     }
 
     // DELETING FIRST ELEMENT
@@ -52,41 +59,43 @@ class linkedList {
         if(head == null){
             return;
         }
+        size--;
         head = head.next;
     }
     
     // DELETING LAST ELEMENT
     public void deleteLast(){
-        Node newNode = null;
         if(head == null){
             return;
         }
         if(head.next == null){
+            head = null;
             return;
         }
+        size--;
         Node secondLast = head;
         Node last = secondLast.next;
         while(last.next != null){
             last = last.next;
             secondLast = secondLast.next;
-            
         }
         secondLast.next = null;
-        
     }
-
 
     public static void main(String[] args) {
         linkedList list = new linkedList();
+        list.addFirst("a");
         list.addFirst("is");
         list.addFirst("This");
         list.addLast("Linkedlist");
+        System.out.println(list.size);
         list.printList();
         list.deleteFirst();
         list.printList();
+        System.out.println(list.size);
         list.deleteLast();
         list.printList();
-        
+        System.out.println(list.size);
     }
 }
 
