@@ -8,5 +8,9 @@ public class reverseString {
             
         }
         System.out.println(rev);
+
+        System.out.print("BY STRINGBUILDER: ");
+        StringBuilder sb = new StringBuilder(name);
+        System.out.println(sb.reverse());
     }
 }

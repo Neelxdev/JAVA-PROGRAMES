@@ -6,48 +6,52 @@ class ListNode{
     ListNode(int val, ListNode next){this.val = val; this.next = next;}
 }
 public class project {
-    ListNode head;
-    public void printList(){
-        if(head == null){
+
+    private ListNode head;
+
+    public void printList() {
+        if (head == null) {
             return;
         }
         ListNode currNode = head;
-            while(currNode != null){
-                System.out.print(currNode.val);
-                if(currNode.next != null){
+        while (currNode != null) {
+            System.out.print(currNode.val);
+            if (currNode.next != null) {
                 System.out.print(" -> ");
-               }
-               currNode= currNode.next;
             }
-            System.out.println();
-        
+            currNode = currNode.next;
+        }
+        System.out.println();
     }
-    public void add(int data){
+
+    public void add(int data) {
         ListNode newNode = new ListNode(data);
-        if(head == null){
+        if (head == null) {
             head = newNode;
             return;
         }
         newNode.next = head;
-        head=newNode;
-        
-        
-
+        head = newNode;
     }
-    public void addLast(int val){
+
+    public void addLast(int val) {
         ListNode newNode = new ListNode(val);
+        if (head == null) {
+            head = newNode;
+            return;
+        }
         ListNode curr = head;
-        while(curr.next != null){
+        while (curr.next != null) {
             curr = curr.next;
         }
         curr.next = newNode;
-
     }
+
     public static void main(String[] args) {
         project list = new project();
-        
+
         list.add(1);
-        list.add( 2);
+        list.add(2);
         list.addLast(3);
         list.printList();
     }

@@ -1,1 +1,0 @@
-rev = rev + name.charAt(n - i - 1); 

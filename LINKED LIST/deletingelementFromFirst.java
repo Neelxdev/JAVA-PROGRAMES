@@ -1,13 +1,22 @@
-import ListNode.*;
+class ListNode{
+    int data;
+    ListNode next;
+    ListNode(){}
+    ListNode(int data){this.data = data;}
+    ListNode(int data, ListNode next){this.data = data;this.next = next;}
+        
+        
+    }
+
 public class deletingelementFromFirst {
     public static ListNode delete(ListNode list, int pos){
-        ListNode head = list;
-        int i = 1;
+        ListNode dummyHead = list;
+        int i = 2;
         while(i<pos){
-            head = head.next;
+            dummyHead = dummyHead.next;
             i++;
         }
-        head.next = head.next;
+        dummyHead.next = dummyHead.next.next;
         return list;
     }
      public static ListNode arraytoLinkedlist(int[] nums){

@@ -1,18 +1,27 @@
-import ListNode.*;
+class ListNode{
+    String data;
+    ListNode next;
+    ListNode(){}
+    ListNode(String data){this.data = data;}
+    ListNode(String data, ListNode next){this.data = data;this.next = next;}
+        
+        
+    }
+
 public class reverseLinkedList {
-    Node head;
+    ListNode head;
 
     public void addLast(String data){
-        Node newNode = new Node(data);
+        ListNode newListNode = new ListNode(data);
         if(head == null){
-            head = newNode;
+            head = newListNode;
             return;
         }
-        Node currNode = head;
-        while(currNode.next != null){
-            currNode = currNode.next;
+        ListNode currListNode = head;
+        while(currListNode.next != null){
+            currListNode = currListNode.next;
         }
-        currNode.next = newNode;
+        currListNode.next = newListNode;
     }  
 
     // reversing process 1(ITERATION)
@@ -21,43 +30,43 @@ public class reverseLinkedList {
             return ;
         }
        
-        Node prevNode = head;
-        Node currNode = prevNode.next;
+        ListNode prevListNode = head;
+        ListNode currListNode = prevListNode.next;
        
-        while(currNode != null){
-            Node lastNode = currNode.next;
-            currNode.next = prevNode;
-            prevNode = currNode;
-            currNode = lastNode;
+        while(currListNode != null){
+            ListNode lastListNode = currListNode.next;
+            currListNode.next = prevListNode;
+            prevListNode = currListNode;
+            currListNode = lastListNode;
             
         }
         head.next = null;
-        head = prevNode;
+        head = prevListNode;
         
     }  
     
     // reversing process 2(RECURSION)
-    public Node reverseList2(Node head){
+    public ListNode reverseList2(ListNode head){
         if(head == null || head.next == null){
             return head;
         }
-        Node newNode = reverseList2(head.next);
+        ListNode newListNode = reverseList2(head.next);
         head.next.next = head;
         head.next = null;
-        return newNode;
+        return newListNode;
     }
     public void printList(){
         if(head == null){
             System.out.println("THIS IS AN EMPTY LIST");
             return ;
         }
-        Node currNode = head;
-        while(currNode != null){
-            System.out.print(currNode.data);
-            if(currNode.next != null){
+        ListNode currListNode = head;
+        while(currListNode != null){
+            System.out.print(currListNode.data);
+            if(currListNode.next != null){
                 System.out.print(" -> ");
             }
-            currNode = currNode.next;
+            currListNode = currListNode.next;
         }
         System.out.println();
     }

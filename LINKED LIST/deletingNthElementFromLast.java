@@ -1,7 +1,15 @@
 import java.util.Scanner;
 
 
-import ListNode.ListNode;
+class ListNode{
+    int data;
+    ListNode next;
+    ListNode(){}
+    ListNode(int data){this.data = data;}
+    ListNode(int data, ListNode next){this.data = data;this.next = next;}
+        
+        
+    }
 
 // class ListNode{
 //     int data;
